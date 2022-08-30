@@ -10,8 +10,8 @@ class Movement:
     delta = .01
 
     # To check which movement function to use
-    bar = True
-    hand = False
+    # bar = True
+    # hand = False
     finger = False
 
     # This function is used to move the middle bar of the robot
@@ -25,9 +25,9 @@ class Movement:
             x_pos = x_pos - self.delta
             # print(x_pos)
         elif float("{0:.2f}".format(x_pos)) == target.x:
-            # print("target reached")
-            self.bar = False
-            self.hand = True
+            print("target reached")
+            # self.bar = False
+            # self.hand = True
 
         self.robot.mid_bar.pos = vector(x_pos, self.robot.mid_bar.pos.y, self.robot.mid_bar.pos.z)
         self.robot.hand.pos = vector(x_pos, self.robot.hand.pos.y, self.robot.hand.pos.z)
@@ -45,7 +45,7 @@ class Movement:
             # print(z_pos)
         elif float("{0:.2f}".format(z_pos)) == target.z:
             # print("target reached")
-            self.hand = False
+            # self.hand = False
             self.finger = True
         self.robot.hand.pos = vector(self.robot.hand.pos.x, self.robot.hand.pos.y, z_pos)
         self.robot.finger.pos = vector(self.robot.finger.pos.x, self.robot.finger.pos.y, z_pos)
@@ -66,13 +66,19 @@ class Movement:
         self.robot.finger.pos = vector(self.robot.finger.pos.x, y_pos, self.robot.finger.pos.z)
 
     # This function controls the whole movement, bar -> hand -> finger
-    def make_move(self, target):
-        if self.bar:
-            self.move_bar(target)
-        elif self.hand:
-            self.move_hand(target)
-        elif self.finger:
-            self.move_finger(target)
+    # def make_move(self, target):
+    #     if self.bar:
+    #         self.move_bar(target)
+    #     elif self.hand:
+    #         self.move_hand(target)
+    #     elif self.finger:
+    #         self.move_finger(target)
+
+    def make_move2(self, target):
+        # self.move_bar(target)
+        # self.move_hand(target)
+        self.move_finger(target)
+
 
 
 
